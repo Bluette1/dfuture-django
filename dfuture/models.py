@@ -6,7 +6,6 @@ def upload_to(instance, filename):
 
 class DocumentRequest(models.Model):
   name = models.CharField(max_length=20)
-  uploaded = models.BooleanField(default=False)
   created_at = models.DateTimeField(auto_now_add=True)
   
   class Meta:
@@ -17,7 +16,6 @@ class DocumentRequest(models.Model):
     
 class Document(models.Model):
   name = models.CharField(max_length=20)
-  client_name = models.CharField(max_length=20)
   uploaded_at = models.DateTimeField(auto_now_add=True)
   file = models.FileField(_("File"), upload_to=upload_to)
     
