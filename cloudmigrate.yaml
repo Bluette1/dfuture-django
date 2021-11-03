@@ -8,6 +8,11 @@ steps:
 - name: "gcr.io/google-appengine/exec-wrapper"
   args: ["-i", "gcr.io/$PROJECT_ID/dfuture-django",
          "-s", "${PROJECT_ID}:${_REGION}:dfuture-django-instance",
+         "--", "python", "manage.py", "makemigrations"]  
+
+- name: "gcr.io/google-appengine/exec-wrapper"
+  args: ["-i", "gcr.io/$PROJECT_ID/dfuture-django",
+         "-s", "${PROJECT_ID}:${_REGION}:dfuture-django-instance",
          "--", "python", "manage.py", "migrate"]
 
 - name: "gcr.io/google-appengine/exec-wrapper"
